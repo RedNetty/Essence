@@ -82,6 +82,9 @@ public class PlayerHandler extends Mechanic implements Listener {
         event.setJoinMessage(ChatColor.translateAlternateColorCodes('&', "&7[&a+&7] " + event.getPlayer().getName()));
         WeaponItemData weaponItemData = new WeaponItemData();
         weaponItemData.setWeaponType(WeaponType.SWORD);
+        weaponItemData.setName("&eLong Dong Battle-Sword");
+        weaponItemData.setAmount(1);
+        weaponItemData.setDroppable(true);
         weaponItemData.setMaterial(Material.GOLDEN_SWORD);
         weaponItemData.setAttributeMap(new WeaponAttributeMap());
         weaponItemData.getAttributeMap().setDamage(new int[]{120, 230});
