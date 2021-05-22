@@ -35,12 +35,13 @@ public class ChatHandler extends Mechanic implements Listener {
         List<EssencePlayer> viewerList = new ArrayList<>();
         switch (essencePlayer.getChatChannel()) {
             case LOCAL:
-                essencePlayer.getPlayer().getLocation().getNearbyEntities(25, 25, 25).forEach(entity -> {
+                essencePlayer.getPlayer().getNearbyEntities(25, 25, 25).forEach(entity -> {
                     if (entity instanceof Player) {
                         EssencePlayer viewer = MechanicHandler.getPlayerHandler().getEPlayer((Player) entity);
                         viewerList.add(viewer);
                     }
                 });
+                viewerList.add(essencePlayer);
                 break;
             case RACE:
                 Bukkit.getOnlinePlayers().forEach(player -> {

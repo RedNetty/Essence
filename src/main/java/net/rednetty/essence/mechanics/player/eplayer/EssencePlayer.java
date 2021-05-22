@@ -6,6 +6,7 @@ import net.rednetty.essence.mechanics.inventory.Menu;
 import net.rednetty.essence.mechanics.moderation.rank.Rank;
 import net.rednetty.essence.mechanics.player.races.Race;
 import net.rednetty.essence.utils.string.DefaultFontInfo;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -30,6 +31,9 @@ public class EssencePlayer implements Serializable {
     }
 
     public Player getPlayer() {
+        if(player == null) {
+            return Bukkit.getPlayer(uuid);
+        }
         return player;
     }
     public boolean isRaceSet() {

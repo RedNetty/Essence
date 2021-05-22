@@ -8,6 +8,7 @@ public class Essence extends JavaPlugin {
 
     private static Essence essence;
     private static MechanicHandler mechanicHandler;
+    private static boolean gameActive = false;
 
     /*
     Instance of The Main Class
@@ -15,6 +16,8 @@ public class Essence extends JavaPlugin {
     public static Essence getInstance() {
         return essence;
     }
+
+    public static boolean isGameActive() { return gameActive;}
 
     public static MechanicHandler getMechanicHandler() {
         return mechanicHandler;

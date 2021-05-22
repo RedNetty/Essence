@@ -4,7 +4,7 @@ import net.rednetty.essence.Essence;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 
-public class Mechanic {
+public class Mechanic implements Listener {
 
     public void onUnload() {}
 

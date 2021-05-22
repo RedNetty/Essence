@@ -3,10 +3,17 @@ package net.rednetty.essence.mechanics.player;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import net.rednetty.essence.Essence;
+import net.rednetty.essence.items.weapon.WeaponAttributeMap;
+import net.rednetty.essence.items.weapon.WeaponItem;
+import net.rednetty.essence.items.weapon.WeaponItemData;
+import net.rednetty.essence.items.weapon.WeaponType;
 import net.rednetty.essence.mechanics.Mechanic;
 import net.rednetty.essence.mechanics.MechanicHandler;
+import net.rednetty.essence.mechanics.gear.WeaponBuilder;
+import net.rednetty.essence.mechanics.gear.enums.WeaponStats;
 import net.rednetty.essence.mechanics.player.eplayer.EssencePlayer;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -16,6 +23,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.inventory.ItemStack;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -72,7 +80,12 @@ public class PlayerHandler extends Mechanic implements Listener {
         ePlayer.centeredMessage("&7&oJoin our community by getting involved in our");
         ePlayer.centeredMessage("&7&owebsite at EssenceRPG.net");
         event.setJoinMessage(ChatColor.translateAlternateColorCodes('&', "&7[&a+&7] " + event.getPlayer().getName()));
-
+        WeaponItemData weaponItemData = new WeaponItemData();
+        weaponItemData.setWeaponType(WeaponType.SWORD);
+        weaponItemData.setMaterial(Material.GOLDEN_SWORD);
+        weaponItemData.setAttributeMap(new WeaponAttributeMap());
+        weaponItemData.getAttributeMap().setDamage(new int[]{120, 230});
+        ePlayer.getPlayer().getInventory().addItem(new WeaponItem(weaponItemData).getItemStack());
         if (!ePlayer.isRaceSet()) {
             ePlayer.getPlayer().getInventory().addItem(MechanicHandler.getRaceHandler().raceSelector().clone());
             ePlayer.centeredMessage("");
