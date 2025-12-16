@@ -1,0 +1,13 @@
+name: Essence
+version: 1.0
+api-version: 1.14
+main: net.rednetty.essence.Essence
+author: RedNetty
+
+commands:
+  local:
+  global:
+  race:
+  setrank:
+  channel:
+  setracespawn:
